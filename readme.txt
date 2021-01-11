@@ -1,3 +1,19 @@
+Compile instructions for use with RG351P:
+
+git clone https://github.com/christianhaitian/PokeMini.git
+
+cd PokeMini
+
+cmake .
+
+make clean
+
+make -f Makefile.libretro CFLAGS="-march=armv8-a+crc+simd -mtune=cortex-a35 -mcpu=cortex-a35 -O3 -pipe -fno-plt -fdata-sections -ffunction-sections -Wl,--gc-sections -fno-stack-protector -fno-ident -fomit-frame-pointer -fmerge-all-constants -fno-math-errno -Wl,--gc-sections -falign-functions=1 -falign-jumps=1 -falign-loops=1 -fno-unwind-tables -fno-asynchronous-unwind-tables -fno-unroll-loops -fmerge-all-constants -frename-registers -funsafe-math-optimizations -ftree-vectorize -flto=16 -fuse-linker-plugin" CXXFLAGS="$CFLAGS -fno-exceptions -fno-rtti" LDFLAGS="-mcpu=cortex-a35 -flto=16 -fuse-linker-plugin -fprofile-use" -j$(nproc)
+
+strip pokemini_libretro.so
+
+
+___________________________________________________________________________________
            ___     _   _
           | _ \   | \_/ |
           |  _/   |  _  |
@@ -6,7 +22,7 @@
           -------------------
              Version  0.60
 
-  Homebrew-emulator for Pokémon-Mini!
+  Homebrew-emulator for PokÃ©mon-Mini!
 
   Latest version can be found in:
   http://pokemini.sourceforge.net/
@@ -17,9 +33,9 @@
 > Keys & Information:
 
   To include real BIOS, place "bios.min" on the emulator's directory.
-  When no "bios.min" is present, emulator will use Pokémon-Mini FreeBIOS.
+  When no "bios.min" is present, emulator will use PokÃ©mon-Mini FreeBIOS.
 
-  Pokémon-Mini     PC Keys
+  PokÃ©mon-Mini     PC Keys
   ----------------------------
   D-PAD Left       Arrow Left
   D-PAD Right      Arrow Right
@@ -158,7 +174,7 @@
 
 > License GPLv3 (emulator and tools):
 
-PokeMini - Pokémon-Mini Emulator
+PokeMini - PokÃ©mon-Mini Emulator
 Copyright (C) 2015  JustBurn
 
 This program is free software: you can redistribute it and/or modify
@@ -188,7 +204,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   Pokemon-Mini Hardware:
   http://wiki.sublab.net/index.php/Pokemon_Mini
 
-  Pokémon-mini.net:
+  PokÃ©mon-mini.net:
   http://www.pokemon-mini.net/
 
   MEGA - Museum of Electronic Games & Art:

@@ -163,6 +163,7 @@ static void ActivateControllerRumble(void)
 		 (rumble_strength_prev == rumble_strength))
 		return;
 
+	system("echo 10 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle");
 	rumble.set_rumble_state(0, RETRO_RUMBLE_WEAK,   rumble_strength);
 	rumble.set_rumble_state(0, RETRO_RUMBLE_STRONG, rumble_strength);
 	rumble_strength_prev = rumble_strength;
@@ -176,6 +177,7 @@ static void DeactivateControllerRumble(void)
 		 (rumble_strength_prev == 0))
 		return;
 
+	system("echo 1000000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle");
 	rumble.set_rumble_state(0, RETRO_RUMBLE_WEAK,   0);
 	rumble.set_rumble_state(0, RETRO_RUMBLE_STRONG, 0);
 	rumble_strength_prev = 0;
